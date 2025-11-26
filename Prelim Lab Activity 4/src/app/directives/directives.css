@@ -1,0 +1,133 @@
+/* PAGE BACKGROUND (colorful gradient) */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb, #a6c0fe, #b5fffc);
+  background-size: 400% 400%;
+  animation: gradientBG 25s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* CARD SECTIONS */
+.section-block {
+  width: 80%;
+  margin: 30px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.section-block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+}
+
+/* COLORFUL TITLES */
+.section-block h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 20px;
+  background: linear-gradient(90deg, #ff6f61, #ffb74d, #4dd0e1, #9575cd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* TABLE BASE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+/* COLORFUL TABLE HEADER */
+thead th {
+  padding: 12px;
+  color: white;
+  background: linear-gradient(90deg, #ff6f61, #42a5f5);
+  text-align: left;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ROW HOVER */
+tbody tr:hover {
+  background: #fff3e0;
+}
+
+/* BUTTONS — BRIGHT COLORS */
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  transition: 0.25s;
+}
+
+/* Assign random color themes */
+button:nth-child(1) { background: #42a5f5; } /* blue */
+button:nth-child(2) { background: #66bb6a; } /* green */
+button:nth-child(3) { background: #ef5350; } /* red */
+button:nth-child(4) { background: #ffb74d; } /* orange */
+
+/* HOVER BUTTON */
+button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+/* INPUT TEXTBOX */
+input {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid #4dd0e1;
+  background: #e0f7fa;
+}
+
+/* CITY LIST */
+ul {
+  padding-left: 25px;
+  line-height: 1.9;
+}
+
+li {
+  padding: 4px 0;
+  font-size: 15px;
+  color: #555;
+}
+
+/* ACTIVE / INACTIVE LABELS */
+p.active {
+  background: #c8e6c9;
+  color: #2e7d32;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+p.inactive {
+  background: #ffcdd2;
+  color: #c62828;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* NORMAL PARAGRAPHS */
+.section-block p {
+  color: #444;
+  font-size: 15px;
+}
