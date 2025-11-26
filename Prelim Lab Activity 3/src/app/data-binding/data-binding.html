@@ -1,0 +1,18 @@
+<h1>{{ studentName }}</h1>
+<section>
+  <h2>Property Binding</h2>
+  <img [src]="imageUrl" width="200" />
+  <br /><br />
+  <button [disabled]="isDisabled">Submit</button>
+</section>
+<h2>Class Binding</h2>
+<p [class.passing]="isPassing" [class.failing] ="!isPassing">
+  Student Result: {{ isPassing ? 'Passed' : 'Failed' }}
+</p>
+<h2>Style Binding</h2>
+<div
+  [style.background]="boxColor"
+  [style.width]="boxSize"
+  [style.height]="boxSize"
+  class="box">
+</div>
