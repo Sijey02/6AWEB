@@ -1,0 +1,78 @@
+<p>Miranda, Christian Josh D.</p>
+<p>WD-302</p>
+
+<h3>Date Pipe</h3>
+<div>
+   Today's date :- {{presentDate | date }}
+</div>
+
+<div>
+  This is a short date :- {{presentDate | date:'shortDate' }} <br/>
+  This line shows the full date :- {{presentDate | date:'fullDate' }} <br/>
+  This will show a formatted date:- {{presentDate | date:'M/dd/yyyy'}} <br/>
+  This indicates the hours and minutes:- {{presentDate | date:'h:mm'}}
+  <p>by: Christian Miranda</p>
+</div>
+
+<div>
+  Date with uppercase :- {{presentDate | date:'fullDate' | uppercase}} <br/>
+  Date with lowercase :- {{presentDate | date:'medium' | lowercase}} <br/>
+</div>
+
+
+<h3>Currency Pipe</h3>
+<div>
+  <p>{{ price | currency:'PHP':true }}</p>
+  <p>{{ price | currency:'INR' }}</p>
+</div>
+
+<h3>Slice Pipe</h3>
+<div>
+  <h3>Start index:- {{Fruits | slice:2}}</h3>
+  <h4>Start and end index:- {{Fruits | slice:1:4}}</h4>
+  <h5>Negative index:- {{Fruits | slice:-2}}</h5>
+  <h6>Negative start and end index:- {{Fruits | slice:-4:-2}}</h6>
+</div>
+
+<h3>Async Pipe</h3>
+<div>
+   Seconds changing in Time: {{ time$ | async | date:'mediumTime' }}
+</div>
+
+<h3>Decimal Pipe</h3>
+<div>
+  <p>{{ decimalNum1 | number }}</p>
+  <p>{{ decimalNum2 | number }}</p>
+</div>
+
+<h3>Percent Pipe</h3>
+<div>
+  <p>A: {{ a | percent }}</p>
+  <p>B: {{ b | percent: '4.3-5' }}</p>
+</div>
+
+<h3>Title Case Pipe</h3>
+<div>
+  <p>{{ 'some string' | titlecase }}</p>
+  <p>{{ 'tHIs is mIXeD CaSe' | titlecase }}</p>
+  <p>{{ "it's non-trivial question" | titlecase }}</p>
+  <p>{{ 'one,two,three' | titlecase }}</p>
+  <p>{{ 'true|false' | titlecase }}</p>
+  <p>{{ 'foo-vs-bar' | titlecase }}</p>
+</div>
+
+<h3>Key-Value Pipe</h3>
+<span>
+  <p>Object</p>
+  @for (item of object | keyvalue; track item.key) {
+    <div>{{ item.key }}:{{ item.value }}</div>
+  }
+  <p>Map</p>
+  @for (item of map | keyvalue; track item.key) {
+    <div>{{ item.key }}:{{ item.value }}</div>
+  }
+  <p>Natural order</p>
+  @for (item of map | keyvalue: null; track item.key) {
+    <div>{{ item.key }}:{{ item.value }}</div>
+  }
+</span>
