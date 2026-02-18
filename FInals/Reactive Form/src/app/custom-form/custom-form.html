@@ -1,0 +1,37 @@
+<div class="card">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <input class="input" placeholder="Student Name" formControlName="studentName" />
+  <div *ngIf="isInvalid('studentName')">
+    <small class="error">Student Name is required (4-30 chars)</small>
+  </div>
+  <input class="input" placeholder="Student Number" formControlName="studentNumber" />
+  <div *ngIf="isInvalid('studentNumber')">
+    <small class="error">Student Number: 8-12 digits</small>
+  </div>
+  <select class="input" formControlName="role">
+    <option *ngFor="let r of roles" [value]="r">{{ r }}</option>
+  </select>
+  <!-- Gender Radio Buttons -->
+  <div class="input">
+    <label style="display:block;margin-bottom:6px;">Gender:</label>
+    <label style="margin-right:16px;"><input type="radio" formControlName="gender" value="male"> Male</label>
+    <label style="margin-right:16px;"><input type="radio" formControlName="gender" value="female"> Female</label>
+    <label><input type="radio" formControlName="gender" value="other"> Other</label>
+  </div>
+  <div *ngIf="isInvalid('gender')">
+    <small class="error">Please select a gender</small>
+  </div>
+  <!-- Status Dropdown -->
+  <select class="input" formControlName="status">
+    <option value="" disabled selected>Select status</option>
+    <option value="permanent">Permanent</option>
+    <option value="probationary">Probationary</option>
+  </select>
+  <div *ngIf="isInvalid('status')">
+    <small class="error">Please select a status</small>
+  </div>
+  <!-- Comments Textarea -->
+  <textarea class="input" formControlName="comments" placeholder="Notes"></textarea>
+  <button class="btn" type="submit" [disabled]="form.invalid">Submit</button>
+</form>
+</div>

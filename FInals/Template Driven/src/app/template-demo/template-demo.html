@@ -1,0 +1,63 @@
+<form (ngSubmit)="onSubmit()" #myForm="ngForm">
+
+  <input
+    class="input-box"
+    type="text"
+    name="username"
+    [(ngModel)]="username"
+    placeholder="Enter username"
+    required>
+
+  <input
+    class="input-box"
+    type="email"
+    name="email"
+    [(ngModel)]="email"
+    placeholder="Enter email"
+    required
+    email>
+
+  <input
+    class="input-box"
+    type="password"
+    name="password"
+    [(ngModel)]="password"
+    placeholder="Enter password"
+    required
+    minlength="6">
+
+  <select
+    class="input-box"
+    name="role"
+    [(ngModel)]="role"
+  required>
+  <option value="" disabled selected>Select role</option>
+  <option value="admin">Admin</option>
+  <option value="user">User</option>
+  <option value="guest">Guest</option>
+  </select>
+
+  <!-- Gender Radio Buttons -->
+  <div class="input-box">
+    <label>Gender:</label>
+    <label><input type="radio" name="gender" [(ngModel)]="gender" value="male" required> Male</label>
+    <label><input type="radio" name="gender" [(ngModel)]="gender" value="female"> Female</label>
+    <label><input type="radio" name="gender" [(ngModel)]="gender" value="other"> Other</label>
+  </div>
+
+  <!-- Status Dropdown -->
+  <select class="input-box" name="status" [(ngModel)]="status" required>
+    <option value="" disabled selected>Select status</option>
+    <option value="permanent">Permanent</option>
+    <option value="probationary">Probationary</option>
+  </select>
+
+  <!-- Comments Textarea -->
+  <textarea class="input-box" name="comments" [(ngModel)]="comments" placeholder="Notes"></textarea>
+
+  <input
+  class="btn"
+  type="submit"
+  value="submit"
+  [disabled]="!myForm.valid">
+</form>

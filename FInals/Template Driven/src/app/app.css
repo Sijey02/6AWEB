@@ -1,0 +1,45 @@
+/* ...existing code... */
+.nav-bar {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 18px 0 12px 0;
+  margin-bottom: 32px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav-bar a {
+  color: #2355d6;
+  text-decoration: none;
+  font-size: 1.08rem;
+  font-weight: 500;
+  padding: 6px 18px;
+  border-radius: 5px;
+  transition: background 0.18s, color 0.18s;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  border: none;
+  display: inline-block;
+}
+.nav-bar a.active, .nav-bar a:focus, .nav-bar a:hover {
+  background: #eaf1ff;
+  color: #1741a6;
+}
+@media (max-width: 600px) {
+  .nav-bar {
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 0 6px 0;
+  }
+  .nav-bar a {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1rem;
+  }
+}
+/* ...existing code... */
