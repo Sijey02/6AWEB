@@ -1,0 +1,58 @@
+<h1>📚 Book Collection</h1>
+<p class="subtitle">Manage your personal book library</p>
+
+<div class="form-container">
+  <h2 class="section-title">Add New Book</h2>
+  <div class="input-group">
+    <input [(ngModel)]="newBook.title" placeholder="Book Title">
+    <input [(ngModel)]="newBook.desc" placeholder="Description">
+    <input [(ngModel)]="newBook.price" placeholder="Price">
+  </div>
+  <button class="btn-add" (click)="addBook()">➕ Add Book</button>
+</div>
+
+<div class="form-container">
+  <h2 class="section-title">Search Books</h2>
+  <div class="search-container">
+    <input [(ngModel)]="searchQuery" placeholder="Search by title or description...">
+    <button class="btn-search" (click)="searchBooks()">🔍 Search</button>
+    <button class="btn-show-all" (click)="refreshBooks()">📋 Show All</button>
+  </div>
+</div>
+
+<div class="books-container">
+  @for (book of books; track book.id) {
+    <div class="book-card">
+      <div class="book-info">
+        @if (editingBookId === book.id) {
+          <!-- Edit Mode -->
+          <div class="edit-form">
+            <input [(ngModel)]="editBook.title" placeholder="Title">
+            <input [(ngModel)]="editBook.desc" placeholder="Description">
+            <input [(ngModel)]="editBook.price" placeholder="Price">
+            <div class="book-actions">
+              <button class="btn-save" (click)="saveEdit(book.id, editBook.title, editBook.desc, editBook.price)">💾 Save</button>
+              <button class="btn-cancel" (click)="cancelEdit()">✖ Cancel</button>
+            </div>
+          </div>
+        } @else {
+          <!-- View Mode -->
+          <h3 class="book-title">📖 {{ book.title }}</h3>
+          <p class="book-desc">{{ book.desc }}</p>
+          <p class="book-price">{{ book.price }}</p>
+          <div class="book-actions">
+            <button class="btn-edit" (click)="startEdit(book)">✏️ Edit</button>
+            <button class="btn-delete" (click)="deleteBook(book.id)">🗑️ Delete</button>
+          </div>
+        }
+      </div>
+    </div>
+  } @empty {
+    <div class="empty-state">
+      <p>📚 No books available. Add your first book above!</p>
+    </div>
+  }
+</div>
+
+<router-outlet />
+
